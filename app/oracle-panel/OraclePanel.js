@@ -40,7 +40,7 @@ const OraclePanel = () => {
       {/* Left Column: Message List */}
       <div style={{ flex: 1 }}>
         <h2>Oracle Queue</h2>
-        <RealtimeQueue onSelectMessage={handleSelectMessage} limit={50} />
+        <RealtimeQueue onSelectMessage={handleSelectMessage} limit={20} />
       </div>
 
       {/* Right Column: Message Details and Response */}
