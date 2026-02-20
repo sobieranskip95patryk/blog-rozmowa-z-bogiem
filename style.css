@@ -1,0 +1,50 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #1e1e1e; /* Ciemne tło jak na zrzucie ekranu */
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    display: flex;
+    flex-direction: column; /* Ustawienie elementów w kolumnie (jeden nad drugim) */
+    align-items: center;
+    gap: 20px; /* Odstęp między logo a plakatem */
+}
+
+.logo-container img {
+    height: auto;
+    max-height: 150px; /* Maksymalna wysokość, ale skaluje się w dół */
+    max-width: 100%; /* Nie szersze niż kontener */
+    width: auto;
+    display: block;
+}
+
+.poster-container img {
+    height: auto;
+    max-height: 500px; /* Maksymalna wysokość plakatu */
+    max-width: 100%; /* Responsywna szerokość */
+    width: auto;
+    display: block;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+/* Responsywność dla mniejszych ekranów */
+@media (max-width: 768px) {
+    .container {
+        gap: 20px;
+        padding: 20px; /* Dodatkowy margines na telefonach */
+    }
+
+    .logo-container img {
+        max-height: 100px; /* Mniejsze logo na telefonie */
+    }
+
+    .poster-container img {
+        max-height: 60vh; /* Plakat zajmuje max 60% wysokości ekranu */
+    }
+}
