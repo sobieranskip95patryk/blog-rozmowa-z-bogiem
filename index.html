@@ -15,5 +15,29 @@
             <img src="imagines/rozmowa z bogiem.png" alt="Rozmowa z Bogiem Poster">
         </div>
     </div>
+
+    <div class="chat-wrapper">
+        <div class="chat-header">
+            <h2>Księga Pytań i Odpowiedzi</h2>
+        </div>
+        <div id="messages-container" class="messages-container">
+            <!-- Tutaj będą pojawiać się wiadomości -->
+            <div class="message system-message">Witaj. Tutaj możesz zadać pytanie.</div>
+        </div>
+        
+        <div class="input-area">
+            <input type="text" id="username-input" placeholder="Twoje imię..." required>
+            <textarea id="message-input" placeholder="Zadaj pytanie..." rows="2"></textarea>
+            <div class="controls">
+                <button id="send-btn">Wyślij</button>
+                <div class="admin-panel">
+                    <input type="password" id="admin-pass" placeholder="Hasło (dla Boga)">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script type="module" src="script.js"></script>
 </body>
 </html>

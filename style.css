@@ -1,10 +1,10 @@
 body {
     margin: 0;
-    padding: 0;
+    padding: 50px 0;
     background-color: #1e1e1e; /* Ciemne tło jak na zrzucie ekranu */
-    height: 100vh;
+    min-height: 100vh; /* Zamiast stałej wysokości */
     display: flex;
-    justify-content: center;
+    flex-direction: column; /* Układ pionowy od samej góry */
     align-items: center;
     font-family: Arial, sans-serif;
 }
