@@ -2,18 +2,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
 import { getDatabase, ref, push, onChildAdded } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-analytics.js";
-
-// KONFIGURACJA FIREBASE
-const firebaseConfig = {
-  apiKey: "AIzaSyDhxDe7uG6mtiPumBLFfZ16P_e5Xjcmofw",
-  authDomain: "rozmowa-z-bogiem.firebaseapp.com",
-  databaseURL: "https://rozmowa-z-bogiem-default-rtdb.europe-west1.firebasedatabase.app",
-  projectId: "rozmowa-z-bogiem",
-  storageBucket: "rozmowa-z-bogiem.firebasestorage.app",
-  messagingSenderId: "846680681801",
-  appId: "1:846680681801:web:18abbd1a5ca2321e65fe98",
-  measurementId: "G-5DS9ELZLH6"
-};
+import { firebaseConfig } from "./config.js";
 
 // Inicjalizacja Firebase
 let app, db, analytics;

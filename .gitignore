@@ -1,0 +1,6 @@
+# Pliki systemowe
+.DS_Store
+Thumbs.db
+
+# Pliki konfiguracyjne z kluczami (NIE WYSYŁAĆ DO GITA)
+config.js
