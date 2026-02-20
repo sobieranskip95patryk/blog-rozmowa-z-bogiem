@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { collection, query, where, orderBy, onSnapshot, limit as limitQuery } from 'firebase/firestore';
 import { db } from '../firebase-config'; // Import Firebase config
+import { ORACLE_QUEUE_REALTIME_LIMIT } from './constants';
 
-const RealtimeQueue = ({ onSelectMessage, limit = 20 }) => {
+const RealtimeQueue = ({ onSelectMessage, limit = ORACLE_QUEUE_REALTIME_LIMIT }) => {
   const [queue, setQueue] = useState([]);
 
   useEffect(() => {
@@ -12,7 +13,7 @@ const RealtimeQueue = ({ onSelectMessage, limit = 20 }) => {
       queueRef,
       where('status', '==', 'waiting'),
       orderBy('timestamp', 'asc'),
-      limitQuery(Number(limit) || 20)
+      limitQuery(Number(limit) || ORACLE_QUEUE_REALTIME_LIMIT)
     );
 
     // Subscribe to Firestore snapshots

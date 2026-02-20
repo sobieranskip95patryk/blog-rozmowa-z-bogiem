@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import RealtimeQueue from './RealtimeQueue';
 import { sendResponse } from './api'; // Import API helper for sending responses
+import { ORACLE_QUEUE_REALTIME_LIMIT } from './constants';
 
 const OraclePanel = () => {
   const [selectedMessage, setSelectedMessage] = useState(null);
@@ -40,7 +41,7 @@ const OraclePanel = () => {
       {/* Left Column: Message List */}
       <div style={{ flex: 1 }}>
         <h2>Oracle Queue</h2>
-        <RealtimeQueue onSelectMessage={handleSelectMessage} limit={20} />
+        <RealtimeQueue onSelectMessage={handleSelectMessage} limit={ORACLE_QUEUE_REALTIME_LIMIT} />
       </div>
 
       {/* Right Column: Message Details and Response */}
