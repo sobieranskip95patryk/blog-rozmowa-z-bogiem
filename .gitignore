@@ -4,3 +4,12 @@ Thumbs.db
 
 # Pliki konfiguracyjne z kluczami (NIE WYSYŁAĆ DO GITA)
 config.js
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Firebase Admin SDK credentials (local only)
+config/firebase-service-account.json
