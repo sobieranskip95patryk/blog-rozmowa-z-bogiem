@@ -1,14 +1,19 @@
 import React, { useEffect, useState } from 'react';
-import { collection, query, where, orderBy, onSnapshot } from 'firebase/firestore';
+import { collection, query, where, orderBy, onSnapshot, limit as limitQuery } from 'firebase/firestore';
 import { db } from '../firebase-config'; // Import Firebase config
 
-const RealtimeQueue = () => {
+const RealtimeQueue = ({ onSelectMessage, limit = 50 }) => {
   const [queue, setQueue] = useState([]);
 
   useEffect(() => {
     // Query to fetch messages with status 'waiting'
     const queueRef = collection(db, 'oracle_queue');
-    const q = query(queueRef, where('status', '==', 'waiting'), orderBy('timestamp', 'asc'));
+    const q = query(
+      queueRef,
+      where('status', '==', 'waiting'),
+      orderBy('timestamp', 'asc'),
+      limitQuery(Number(limit) || 50)
+    );
 
     // Subscribe to Firestore snapshots
     const unsubscribe = onSnapshot(q, (snapshot) => {
@@ -28,7 +33,11 @@ const RealtimeQueue = () => {
       ) : (
         <ul>
           {queue.map((item) => (
-            <li key={item.id}>
+            <li
+              key={item.id}
+              onClick={() => onSelectMessage?.(item)}
+              style={{ cursor: onSelectMessage ? 'pointer' : 'default' }}
+            >
               <strong>{item.text}</strong> <br />
               <small>Emotion: {item.emotion || 'N/A'}, Topic: {item.topic || 'N/A'}</small>
             </li>
